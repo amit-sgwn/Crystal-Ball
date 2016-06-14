@@ -10,7 +10,7 @@ import android.widget.TextView;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
-
+    private CrystalBall ball = new CrystalBall();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,16 +19,11 @@ public class MainActivity extends AppCompatActivity {
         Button btn;
         text =(TextView)findViewById(R.id.textView);
         btn = (Button)findViewById(R.id.button);
+        assert btn != null;
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String ans ="yes";
-                //Creating a random number
-                Random randomGenerator = new Random();
-                int num = randomGenerator.nextInt(5);
-                ans =Integer.toString(num);
-                text.setText(ans);
-
+                text.setText(ball.getAnswer());
             }
         });
     }
