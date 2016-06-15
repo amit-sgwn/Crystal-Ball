@@ -15,9 +15,8 @@
         android:layout_height="match_parent"
         android:id="@+id/imageView"
         android:src="@drawable/ball01"
-        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="56dp" />
+        android:layout_alignParentBottom="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -31,14 +30,5 @@
         android:textColor="@android:color/white"
         android:gravity="center_horizontal"
         android:shadowColor="@android:color/white" />
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Enligten me!"
-        android:id="@+id/button"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

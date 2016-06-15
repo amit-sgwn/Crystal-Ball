@@ -1,6 +1,8 @@
 package com.example.amit.crystalball;
 
 import android.graphics.drawable.AnimationDrawable;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,7 +17,10 @@ public class MainActivity extends AppCompatActivity {
     private CrystalBall ball = new CrystalBall();
     TextView mGetAnswer;
     ImageView mCrystalball;
-    Button btn;
+    private SensorManager mSensorManager;
+    private Sensor mAccelarometer ;
+    private ShakeDetector mShakeDetector;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,21 +28,24 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
         mGetAnswer =(TextView)findViewById(R.id.textView);
-        btn = (Button)findViewById(R.id.button);
-
-
-        btn.setOnClickListener(new View.OnClickListener() {
+        mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        mAccelarometer =mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        mShakeDetector = new ShakeDetector(new ShakeDetector.OnShakeListener() {
             @Override
-            public void onClick(View v) {
-                mGetAnswer.setText(ball.getAnswer());
-
-                animationCrystalBall();
-                answerAnimation();
-                playSound();
+            public void onShake() {
+                handleNewAnswer();
             }
         });
+
     }
 
+    private void handleNewAnswer() {
+        mGetAnswer.setText(ball.getAnswer());
+
+        animationCrystalBall();
+        answerAnimation();
+        playSound();
+    }
 
 
     private void animationCrystalBall(){
