@@ -39,6 +39,18 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mSensorManager.registerListener(mShakeDetector,mAccelarometer,SensorManager.SENSOR_DELAY_UI);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mSensorManager.unregisterListener(mShakeDetector);
+    }
+
     private void handleNewAnswer() {
         mGetAnswer.setText(ball.getAnswer());
 
