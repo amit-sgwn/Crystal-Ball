@@ -7,7 +7,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.amit.crystalball.MainActivity">
+    tools:context="com.example.amit.crystalball.MainActivity"
+    android:background="@android:color/black">
 
     <ImageView
         android:layout_width="match_parent"
@@ -23,9 +24,13 @@
         android:layout_height="wrap_content"
         android:id="@+id/textView"
 
-        android:text="Hello World!"
+        android:text=" Better not to tell you know"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textSize="24sp"
+        android:textColor="@android:color/white"
+        android:gravity="center_horizontal"
+        android:shadowColor="@android:color/white" />
 
     <Button
         android:layout_width="match_parent"
